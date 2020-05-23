@@ -1,0 +1,131 @@
+.row {
+    max-width: 40rem;
+}
+
+.option:hover,
+.grid-cell:hover {
+    cursor: pointer;
+}
+
+label:hover {
+    cursor: pointer
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.options {
+    position: relative;
+}
+
+.options .option {
+    text-align: center;
+}
+
+.options .option input[type="radio"] {
+    position: absolute;
+    left: -99999em;
+}
+
+.options .option input[type="radio"]:disabled + label {
+    visibility: hidden;
+}
+
+.options .option label {
+    display: block;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.button.submit {
+    display: none;
+}
+
+thead,
+tbody {
+    border: none 0;
+}
+
+/*table,*/
+thead,
+.grid,
+.options, .grid-row,
+td {
+    display: flex;
+}
+
+thead,
+.grid {
+    flex-direction: column;
+}
+
+.options, .grid-row {
+    flex-direction: row;
+}
+
+.option, .grid-cell {
+    width: 100%;
+    justify-content: center;
+}
+
+.grid-row {
+/*    display: flex;*/
+    align-items: flex-start;
+}
+.grid-cell {
+    flex: 1 1 auto;
+    position: relative;
+
+    border: 5px solid;
+    border-color: blue;
+}
+.grid-cell:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    /* initial ratio of 1:1*/
+}
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+.grid-cell {
+    position: relative;
+    background: blue;
+}
+
+.grid-cell:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+}
+
+.grid-cell[data-owner="player-1"]:after {
+    background: yellow;
+}
+
+.grid-cell[data-owner="player-2"]:after {
+    background: red;
+}
+
+.option.in-scope,
+.grid-cell.in-scope {
+    background: green;
+    border-color: green;
+}
+
+
+
+/*https://stackoverflow.com/questions/23944910/flexbox-how-to-control-height-proportional-to-width*/

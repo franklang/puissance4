@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puissance 4 (version jQuery)</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.css" integrity="sha256-duM8u2N7KXv8XmXCOxGvHeUGh+OA1GecR4mqXyaTOzU=" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.css" integrity="sha256-KIirZ1lROJW4xgkm1sb+O6ZKm3yrVHGqcjfToao4K0E=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script
+        src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="columns">
+      <p id="player" class="player">Player <span class="number">1</span></p>
+      <form id="play">
+        <table>
+          <thead>
+            <tr id="options" class="options">
+              <td class="option" data-col="0">
+                <input type="radio" id="col-0" name="options" value="0" />
+                <label for="col-0">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="1">
+                <input type="radio" id="col-1" name="options" value="1" />
+                <label for="col-1">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="2">
+                <input type="radio" id="col-2" name="options" value="2" />
+                <label for="col-2">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="3">
+                <input type="radio" id="col-3" name="options" value="3" />
+                <label for="col-3">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="4">
+                <input type="radio" id="col-4" name="options" value="4" />
+                <label for="col-4">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="5">
+                <input type="radio" id="col-5" name="options" value="5" />
+                <label for="col-5">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+              <td class="option" data-col="6">
+                <input type="radio" id="col-6" name="options" value="6" />
+                <label for="col-6">
+                  <i class="fas fa-arrow-alt-circle-down fa-fw"></i>
+                </label>
+              </td>
+            </tr>
+          </thead>
+          <tbody id="grid" class="grid">
+            <tr class="grid-row" data-row="0">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+            <tr class="grid-row" data-row="1">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+            <tr class="grid-row" data-row="2">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+            <tr class="grid-row" data-row="3">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+            <tr class="grid-row" data-row="4">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+            <tr class="grid-row" data-row="5">
+              <td class="grid-cell" data-col="0"><span class="content"></span></td>
+              <td class="grid-cell" data-col="1"><span class="content"></span></td>
+              <td class="grid-cell" data-col="2"><span class="content"></span></td>
+              <td class="grid-cell" data-col="3"><span class="content"></span></td>
+              <td class="grid-cell" data-col="4"><span class="content"></span></td>
+              <td class="grid-cell" data-col="5"><span class="content"></span></td>
+              <td class="grid-cell" data-col="6"><span class="content"></span></td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="btnSubmit" class="button submit" role="button">Submit</button>
+      </form>
+    </div><!-- end: .columns -->
+  </div><!-- end: .row -->
+
+  <script src="core.js" type="text/javascript"></script>
+  <!-- <script src="combinations.js" type="text/javascript"></script> -->
+</body>
+</html>
