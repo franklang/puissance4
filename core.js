@@ -8,7 +8,7 @@ $(document).ready(function() {
         combinations = [];
 
 
-    let $grid = $('#grid');
+    let $grid = $('#grid'); 
 
 
     function createCombinations( columnValue, rowValue, constantValue ) {
@@ -16,59 +16,53 @@ $(document).ready(function() {
             column,
             row;
 
-        // 0: 'c3-r3', 'c2-r2', 'c1-r1', 'c0-r0'
-        // 1: 'c4-r4', 'c3-r3', 'c2-r2', 'c1-r1'
-        // 2: 'c5-r5', 'c4-r4', 'c3-r3', 'c2-r2'
-        // 3: 'c6-r6', 'c5-r5', 'c4-r4', 'c3-r3'
-
         for ( i = 0; i < constantValue; i++ ) {
+
+            // Diagonal: bottom to top/right to left
+            // 0: 'c3-r3', 'c2-r2', 'c1-r1', 'c0-r0'
+            // 1: 'c4-r4', 'c3-r3', 'c2-r2', 'c1-r1'
+            // 2: 'c5-r5', 'c4-r4', 'c3-r3', 'c2-r2'
+            // 3: 'c6-r6', 'c5-r5', 'c4-r4', 'c3-r3'
             for ( column = columnValue, row = rowValue;
                   column < columnValue - constantValue, row > rowValue - constantValue;
                   column--, row-- ) {
-                
+
                 combinations.push( [column + i, row + i] );
-            
             }
-        }
 
-        // 'c3-r3', 'c4-r2', 'c5-r1', 'c6-r0'
-        // 'c2-r4', 'c3-r3', 'c4-r2', 'c5-r1'
-        // 'c1-r5', 'c2-r4', 'c3-r3', 'c4-r2'
-        // 'c0-r6', 'c1-r5', 'c2-r4', 'c3-r3'
-
-        for ( i = 0; i < constantValue; i++ ) {
+            // Diagonal: bottom to top/left to right
+            // 0: 'c3-r3', 'c4-r2', 'c5-r1', 'c6-r0'
+            // 1: 'c2-r4', 'c3-r3', 'c4-r2', 'c5-r1'
+            // 2: 'c1-r5', 'c2-r4', 'c3-r3', 'c4-r2'
+            // 3: 'c0-r6', 'c1-r5', 'c2-r4', 'c3-r3'
             for ( column = columnValue, row = rowValue;
                   column < columnValue + constantValue, row > rowValue - constantValue;
                   column++, row-- ) {
-                
+
                 combinations.push( [column - i, row + i] );
             }
-        }
 
-        // 'c3-r3', 'c2-r3', 'c1-r3', 'c0-r3'
-        // 'c4-r3', 'c3-r3', 'c2-r3', 'c1-r3'
-        // 'c5-r3', 'c4-r3', 'c3-r3', 'c2-r3'
-        // 'c6-r3', 'c5-r3', 'c4-r3', 'c3-r3'
-
-        for ( i = 0; i < constantValue; i++ ) {
+            // Row: left to right
+            // 0: 'c3-r3', 'c2-r3', 'c1-r3', 'c0-r3'
+            // 1: 'c4-r3', 'c3-r3', 'c2-r3', 'c1-r3'
+            // 2: 'c5-r3', 'c4-r3', 'c3-r3', 'c2-r3'
+            // 3: 'c6-r3', 'c5-r3', 'c4-r3', 'c3-r3'
             for ( column = columnValue, row = rowValue;
                   column < columnValue - constantValue, row > rowValue - constantValue;
                   column--, row-- ) {
-                
+
                 combinations.push( [column + i, rowValue] );
             }
-        }
 
-        // 'c3-r3', 'c3-r2', 'c3-r1', 'c3-r0'
-        // 'c3-r4', 'c3-r3', 'c3-r2', 'c3-r1'
-        // 'c3-r5', 'c3-r4', 'c3-r3', 'c3-r2'
-        // 'c3-r6', 'c3-r5', 'c3-r4', 'c3-r3'
-
-        for ( i = 0; i < constantValue; i++ ) {
+            // Column: bottom to top
+            // 0: 'c3-r3', 'c3-r2', 'c3-r1', 'c3-r0'
+            // 1: 'c3-r4', 'c3-r3', 'c3-r2', 'c3-r1'
+            // 2: 'c3-r5', 'c3-r4', 'c3-r3', 'c3-r2'
+            // 3: 'c3-r6', 'c3-r5', 'c3-r4', 'c3-r3'
             for ( row = rowValue;
                   row > rowValue - constantValue;
                   row-- ) {
-                
+
                 combinations.push( [columnValue, row + i] );
             }
         }
@@ -149,14 +143,12 @@ $(document).ready(function() {
         checkCombinations( whichPlayersMove, constant );
 
         // disable column if full
-        let isFullColumn = $('#grid').find('[data-row="0"]').has('[data-col="' + chosenColumn + '"][data-owner]');
+        let isFullColumn = $grid.find('[data-row="0"]').has('[data-col="' + chosenColumn + '"][data-owner]');
         if (isFullColumn.length == 1) {
             $('#col-' + chosenColumn, '#options').attr('disabled', '');
         } else {
             // nada
         }
-
-        // 
 
         // TODO: if all columns are full -> ex-aequo!
 
@@ -184,3 +176,4 @@ $(document).ready(function() {
 // https://stackoverflow.com/questions/22990503/how-to-convert-data-attribute-value-to-integer-for-in-javascript
 // https://www.w3schools.com/jsref/jsref_tostring_number.asp
 // https://stackoverflow.com/questions/7037926/javascript-how-to-tell-if-one-number-is-a-multiple-of-another
+// https://ayushgp.github.io/Tic-Tac-Toe-Socket-IO/
