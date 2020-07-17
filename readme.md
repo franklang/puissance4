@@ -11,7 +11,7 @@ docker-compose run --rm --service-ports dev_env
 From the container shell:
 ```
 // Only execute once, at project init, or whenever a new dependency is added to the package.json file:
-npm install
+yarn install
 
 // Compile front-end assets and start server:
 yarn start
