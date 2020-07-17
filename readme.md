@@ -4,11 +4,8 @@
 
 From the root folder of the project:
 ```
-// Build puissance4 container:
-docker build -t puissance4 .
-
-// Then, run the service (access to the container shell):
-docker-compose run --rm --service-ports puissance4_dev_env
+// Run the service (and access the container shell):
+docker-compose run --rm --service-ports dev_env
 ```
 
 From the container shell:

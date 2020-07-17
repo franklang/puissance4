@@ -1,6 +1,6 @@
 version: "3"
 services:
-  puissance4_dev_env:
+  dev_env:
     build: .
     container_name: puissance4
     ports:
