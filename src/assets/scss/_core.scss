@@ -1,18 +1,12 @@
-.row {
+.wrapper {
     max-width: 40rem;
+    margin: 0 auto;
 }
 
 .option:hover,
-.grid-cell:hover {
-    cursor: pointer;
-}
-
+.grid-cell:hover,
 label:hover {
-    cursor: pointer
-}
-
-.wrapper {
-    margin: 0 auto;
+    cursor: pointer;
 }
 
 .options {
@@ -51,7 +45,6 @@ tbody {
     border: none 0;
 }
 
-/*table,*/
 thead,
 .grid,
 .options, .grid-row,
@@ -74,22 +67,24 @@ thead,
 }
 
 .grid-row {
-/*    display: flex;*/
     align-items: flex-start;
 }
+
 .grid-cell {
     flex: 1 1 auto;
     position: relative;
-
     border: 5px solid;
     border-color: blue;
 }
+
 .grid-cell:before {
     content: "";
     display: block;
     padding-top: 100%;
-    /* initial ratio of 1:1*/
+    /* initial ratio of 1:1 */
+    /* https://stackoverflow.com/questions/23944910/flexbox-how-to-control-height-proportional-to-width */
 }
+
 .content {
     position: absolute;
     top: 0;
@@ -97,8 +92,6 @@ thead,
     bottom: 0;
     right: 0;
 }
-
-
 
 .grid-cell {
     position: relative;
@@ -130,6 +123,13 @@ thead,
     border-color: green;
 }
 
-
-
-/*https://stackoverflow.com/questions/23944910/flexbox-how-to-control-height-proportional-to-width*/
+// https://css-tricks.com/svg-sprites-use-better-icon-fonts/
+/* Do whatever makes sense here.
+   Just know that the svg will be an
+   enormous 100% wide if you don't
+   reign in the width. */
+.icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}

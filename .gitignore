@@ -6,3 +6,4 @@ dist
 *.swp
 .cache
 .idea
+src/partials/svgSprite.html
